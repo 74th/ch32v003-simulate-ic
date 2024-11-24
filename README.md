@@ -12,4 +12,4 @@ This project aims to simulate the functionality of various common integrated cir
 
 CC0 1.0 Universal
 
-- ch32v003fun: [https://github.com/cnlohr/ch32v003fun](https://github.com/cnlohr/ch32v003fun)
+- ch32v003fun: [https://github.com/cnlohr/ch32v003fun](https://github.com/cnlohr/ch32v003fun

@@ -1,0 +1,16 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "upload-mcp23017",
+            "command": "rye",
+            "type": "shell",
+            "args": ["run", "inv", "-e", "upload-mcp23017"],
+            "problemMatcher": [],
+            "presentation": {
+                "reveal": "never"
+            },
+            "group": "build"
+        }
+    ]
+}

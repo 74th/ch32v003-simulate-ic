@@ -11,6 +11,17 @@
                 "reveal": "never"
             },
             "group": "build"
+        },
+        {
+            "label": "upload-i2c-test",
+            "command": "rye",
+            "type": "shell",
+            "args": ["run", "inv", "-e", "upload-i2c-test"],
+            "problemMatcher": [],
+            "presentation": {
+                "reveal": "never"
+            },
+            "group": "build"
         }
     ]
 }

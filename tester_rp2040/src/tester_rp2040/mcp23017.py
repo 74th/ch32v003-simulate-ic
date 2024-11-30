@@ -73,11 +73,13 @@ def test_all_write(
         time.sleep(0.1)
         a_value, b_value = get_pin_value(a_ios, b_ios)
         validate_pin_value(a_value, b_value, 0b01010101, 0b01010101)
+        time.sleep(0.1)
 
         device.write(bytes([0x12, 0b11110000, 0b11110000]))
         time.sleep(0.1)
         a_value, b_value = get_pin_value(a_ios, b_ios)
         validate_pin_value(a_value, b_value, 0b11110000, 0b11110000)
+        time.sleep(0.1)
 
 
 def test_all_read(
@@ -89,6 +91,7 @@ def test_all_read(
         p.switch_to_output()
     for p in gpb_ios:
         p.switch_to_output()
+    time.sleep(0.5)
 
     with device:  # type: ignore[call-arg]
         # 全てReadにする
@@ -170,8 +173,8 @@ def main() -> None:
     with busio.I2C(board.GP5, board.GP4) as i2c:  # type: ignore[call-arg]
         device = I2CDevice(i2c, 0x20)
 
-        print("write test")
-        test_all_write(device, gpa_ios, gpb_ios)
+        # print("write test")
+        # test_all_write(device, gpa_ios, gpb_ios)
 
         print("read test")
         test_all_read(device, gpa_ios, gpb_ios)

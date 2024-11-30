@@ -19,3 +19,9 @@ def umount(c: Context) -> None:
 def upload_mcp23017(c: Context) -> None:
     c.run(f"cp ./src/tester_rp2040/mcp23017.py {DEVICE_DIR}/code.py")
     c.run("sync")
+
+
+@task
+def upload_i2c_test(c: Context) -> None:
+    c.run(f"cp ./src/tester_rp2040/i2c_test.py {DEVICE_DIR}/code.py")
+    c.run("sync")

@@ -84,7 +84,7 @@ else
 			MCU_PACKAGE:=1
 		endif
 
-		TARGET_MCU_LD:=4		
+		TARGET_MCU_LD:=4
 	else ifeq ($(findstring CH32V20,$(TARGET_MCU)),CH32V20) # CH32V203
 		TARGET_MCU_PACKAGE?=CH32V203F6P6
 		CFLAGS_ARCH+=	-march=rv32imac \
@@ -185,7 +185,7 @@ CFLAGS+= \
 	-I. -Wall $(EXTRA_CFLAGS)
 
 LDFLAGS+=-T $(LINKER_SCRIPT) -Wl,--gc-sections
-FILES_TO_COMPILE:=$(SYSTEM_C) $(TARGET).$(TARGET_EXT) $(ADDITIONAL_C_FILES) 
+FILES_TO_COMPILE:=$(SYSTEM_C) $(TARGET).$(TARGET_EXT) $(ADDITIONAL_C_FILES)
 
 $(TARGET).bin : $(TARGET).elf
 	$(PREFIX)-objdump -S $^ > $(TARGET).lst
@@ -209,7 +209,7 @@ monitor :
 unbrick :
 	$(MINICHLINK)/minichlink -u
 
-gdbserver : 
+gdbserver :
 	-$(MINICHLINK)/minichlink -baG
 
 clangd :
@@ -237,7 +237,7 @@ ch32v003fun.o : $(SYSTEM_C)
 	$(PREFIX)-gcc -c -o $@ $(SYSTEM_C) $(CFLAGS)
 
 cv_flash : $(TARGET).bin
-	make -C $(MINICHLINK) all
+	# make -C $(MINICHLINK) all
 	$(FLASH_COMMAND)
 
 cv_clean :
